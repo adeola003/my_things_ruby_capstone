@@ -15,14 +15,3 @@ class Genre
     item.genre = self
   end
 end
-
-genre = Genre.new("Rock")
-
-item1 = Item.new(Date.new(2020, 1, 1))
-genre.add_item(item1)
-
-item2 = Item.new(Date.new(2021, 2, 2))
-genre.add_item(item2)
-
-puts genre.name # Output: Rock
-puts genre.items # Output: [#<Item:0x0000000000000000>, #<Item:0x0000000000000001>]
