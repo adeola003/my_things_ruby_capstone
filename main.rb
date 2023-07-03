@@ -1,4 +1,4 @@
-require_relative 'item'
+require_relative './src/item'
 
 def print_menu
   puts 'Options:'
