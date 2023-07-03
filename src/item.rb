@@ -5,6 +5,7 @@ class Item
     @id = Random.rand(1..1000)
     @published_date = published_date
     @archived = false
+    @genre = nil
   end
 
   def add_genre(genre)
