@@ -11,7 +11,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[Vet\_clinic\] ](#-vet_clinic-)
+- [📖 \[OOP-School-library\] ](#-oop-school-library-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -19,9 +19,6 @@
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
-    - [Usage](#usage)
-    - [Run test](#run-test)
-  - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
@@ -101,11 +98,14 @@ insert files... -->
 - GitHub: [@githubhandle](https://github.com/adeola003)
 - Twitter: [@twitterhandle](https://twitter.com/khadaf6)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdel-khafid-salaou)
-#### 👤 **Mahabub Alam**
 
-- GitHub: [mahabubx7](https://github.com/mahabubx7)
-- Twitter: [@mahabub__7](https://twitter.com/mahabub__7)
-- Linkedin: [in/mahabubx7](https://www.linkedin.com/in/mahabubx7)
+
+👤 **JOSECK OSUGO**
+
+- GitHub: [0sugo](https://github.com/0sugo)
+- Twitter: [@0sugo5](https://twitter.com/osugo5)
+- LinkedIn: [Joseck Osugo](https://www.linkedin.com/in/joseck-osugo/)
+
 
 <!-- FUTURE FEATURES -->
 
