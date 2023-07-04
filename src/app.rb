@@ -61,14 +61,11 @@ class App
     when 3
       add_book
     when 4
-      leave
+      exit
+      @exit = true
     else
       puts 'Invalid choice'
     end
-  end
-
-  def leave
-    @exit = true
   end
 
   def run
