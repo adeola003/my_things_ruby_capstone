@@ -16,7 +16,7 @@ class App
     else
       puts 'List of books:'
       @books.each do |book|
-        puts "#{book.title} by #{book.author}"
+        puts "Publisher: #{book.publisher} cover_state: #{book.cover_state}"
       end
     end
   end
@@ -27,21 +27,30 @@ class App
     else
       puts 'List of labels:'
       @labels.each do |label|
-        puts label.name
+        puts "title: #{label.title} color: #{label.color}"
       end
     end
   end
 
   def add_book
-    print 'Enter the title of the book: '
+    print 'Enter the title for the label: '
     title = gets.chomp
-    print 'Enter the author of the book: '
-    author = gets.chomp
+    print 'Enter the publisher of the book: '
+    publisher = gets.chomp
+    print 'Enter the cover state of the book: '
+    cover_state = gets.chomp
+    print 'Enter the published date of the book: '
+    published_date = gets.chomp
+    print 'Enter the color of the label: '
+    color = gets.chomp
 
-    book = Book.new(title, author)
+    book = Book.new(publisher, cover_state, published_date)
+    label = Label.new(title, color, published_date)
+
     @books << book
+    @labels << label
 
-    puts "Book '#{book.title}' by #{book.author} added successfully."
+    puts 'Book added successfully.'
   end
 
   def display_options
