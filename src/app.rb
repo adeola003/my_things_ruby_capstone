@@ -12,9 +12,9 @@ class App
 
   def list_books
     if @books.empty?
-      puts "No books available."
+      puts 'No books available.'
     else
-      puts "List of books:"
+      puts 'List of books:'
       @books.each do |book|
         puts "#{book.title} by #{book.author}"
       end
@@ -23,9 +23,9 @@ class App
 
   def list_labels
     if @labels.empty?
-      puts "No labels available."
+      puts 'No labels available.'
     else
-      puts "List of labels:"
+      puts 'List of labels:'
       @labels.each do |label|
         puts label.name
       end
@@ -33,9 +33,9 @@ class App
   end
 
   def add_book
-    print "Enter the title of the book: "
+    print 'Enter the title of the book: '
     title = gets.chomp
-    print "Enter the author of the book: "
+    print 'Enter the author of the book: '
     author = gets.chomp
 
     book = Book.new(title, author)
@@ -45,11 +45,11 @@ class App
   end
 
   def display_options
-    puts "Options:"
-    puts "1. List all books"
-    puts "2. List all labels"
-    puts "3. Add a book"
-    puts "4. Exit"
+    puts 'Options:'
+    puts '1. List all books'
+    puts '2. List all labels'
+    puts '3. Add a book'
+    puts '4. Exit'
   end
 
   def execute(choice)
@@ -63,7 +63,7 @@ class App
     when 4
       leave
     else
-      puts "Invalid choice"
+      puts 'Invalid choice'
     end
   end
 
@@ -72,13 +72,11 @@ class App
   end
 
   def run
-    while !@exit
+    until @exit
       display_options
-      print "Enter your choice: "
+      print 'Enter your choice: '
       choice = gets.chomp.to_i
       execute(choice)
     end
   end
 end
-
-
