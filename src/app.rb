@@ -7,7 +7,7 @@ class App
   def initialize
     @books = []
     @labels = []
-    @exit = false
+    @should_exit = false
   end
 
   def list_books
@@ -52,6 +52,11 @@ class App
     puts '4. Exit'
   end
 
+  def leave
+    @should_exit = true
+    exit
+  end
+
   def execute(choice)
     case choice
     when 1
@@ -61,15 +66,14 @@ class App
     when 3
       add_book
     when 4
-      exit
-      @exit = true
+      leave
     else
       puts 'Invalid choice'
     end
   end
 
   def run
-    until @exit
+    until @should_exit
       display_options
       print 'Enter your choice: '
       choice = gets.chomp.to_i
