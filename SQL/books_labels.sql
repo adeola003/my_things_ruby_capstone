@@ -1,18 +1,21 @@
-CREATE TABLE books (
+CREATE TABLE items (
   id INTEGER PRIMARY KEY,
   published_date DATE,
-  archived BOOLEAN,
-  genre_id INTEGER,
-  author_id INTEGER,
-  label_id INTEGER,
-  FOREIGN KEY (genre_id) REFERENCES genres(id),
-  FOREIGN KEY (author_id) REFERENCES authors(id),
-  FOREIGN KEY (label_id) REFERENCES labels(id)
+  archived BOOLEAN
+);
+
+CREATE TABLE books (
+  id INTEGER PRIMARY KEY,
+  publisher TEXT,
+  cover_state TEXT,
+  item_id INTEGER,
+  FOREIGN KEY (item_id) REFERENCES items(id)
 );
 
 CREATE TABLE labels (
   id INTEGER PRIMARY KEY,
   title TEXT,
-  color TEXT
+  color TEXT,
+  item_id INTEGER,
+  FOREIGN KEY (item_id) REFERENCES items(id)
 );
-
