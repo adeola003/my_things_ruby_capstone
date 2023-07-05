@@ -3,6 +3,8 @@ require 'date'
 require_relative 'book'
 require_relative 'label'
 require_relative 'storage'
+require_relative 'music_album'
+
 
 class App
   attr_accessor :books, :labels
@@ -12,6 +14,7 @@ class App
   def initialize
     @books = []
     @labels = []
+    @music_albums = []
     @should_exit = false
   end
 
@@ -59,11 +62,11 @@ class App
   end
 
   def list_music_albums
-    if @books.empty?
+    if @music_albums.empty?
       puts 'No music albums available.'
     else
       puts 'List of music albums:'
-      @books.each do |album|
+      @music_albums.each do |album|
         puts "Published Date: #{album.published_date} On Spotify: #{album.on_spotify}"
       end
     end
