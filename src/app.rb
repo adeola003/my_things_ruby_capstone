@@ -58,12 +58,28 @@ class App
     puts 'Book added successfully.'
   end
 
+  def list_music_albums
+    if @books.empty?
+      puts 'No music albums available.'
+    else
+      puts 'List of music albums:'
+      @books.each do |album|
+        puts "Published Date: #{album.published_date} On Spotify: #{album.on_spotify}"
+      end
+    end
+  end
+
+  
+
   def display_options
     puts 'Options:'
     puts '1. List all books'
     puts '2. List all labels'
     puts '3. Add a book'
-    puts '4. Exit'
+    puts '4. List all music albums'
+    puts '5. List all genres'
+    puts '6. Add a music album'
+    puts '7. Exit'
   end
 
   def leave
@@ -81,6 +97,12 @@ class App
     when 3
       add_book
     when 4
+      list_music_albums
+    when 5
+      list_genres
+    when 6
+      add_music_album
+    when 7
       leave
     else
       puts 'Invalid choice'
