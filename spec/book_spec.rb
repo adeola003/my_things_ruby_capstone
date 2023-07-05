@@ -22,7 +22,7 @@ RSpec.describe Book do
 
       context 'when the published date is more than 10 years ago' do
         before do
-          book.published_date = Date.today - 11 * 365
+          book.published_date = Date.today - (11 * 365)
         end
 
         it 'returns true' do
@@ -32,7 +32,7 @@ RSpec.describe Book do
 
       context 'when the published date is less than or equal to 10 years ago' do
         before do
-          book.published_date = Date.today - 9 * 365
+          book.published_date = Date.today - (9 * 365)
         end
 
         it 'returns false' do
@@ -41,6 +41,4 @@ RSpec.describe Book do
       end
     end
   end
-
-
 end

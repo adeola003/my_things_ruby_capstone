@@ -13,5 +13,4 @@ RSpec.describe Label do
       expect(book.label).to eq(label)
     end
   end
-
 end
