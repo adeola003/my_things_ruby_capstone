@@ -4,6 +4,7 @@ require_relative 'book'
 require_relative 'label'
 require_relative 'storage'
 require_relative 'music_album'
+require_relative 'genre'
 
 class App
   attr_accessor :books, :labels
@@ -14,6 +15,7 @@ class App
     @books = []
     @labels = []
     @music_albums = []
+    @genres = []
     @should_exit = false
   end
 
@@ -91,10 +93,18 @@ class App
     album = MusicAlbum.new(published_date)
     album.on_spotify = on_spotify
 
+    print 'Enter the genre name: '
+    genre_name = gets.chomp
+
+    genre = Genre.new(genre_name)
+    genre.add_item(album)
+
     @music_albums << album
+    @genres << genre
 
     puts 'Music album added successfully.'
   end
+
 
   def display_options
     puts 'Options:'
