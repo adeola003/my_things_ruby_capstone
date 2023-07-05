@@ -1,8 +1,13 @@
+require 'json'
+require 'date'
 require_relative 'book'
 require_relative 'label'
+require_relative 'storage'
 
 class App
   attr_accessor :books, :labels
+
+  include Storage
 
   def initialize
     @books = []
@@ -39,8 +44,8 @@ class App
     publisher = gets.chomp
     print 'Enter the cover state of the book: '
     cover_state = gets.chomp
-    print 'Enter the published date of the book: '
-    published_date = gets.chomp
+    print 'Enter the published date of the book (YYYY-MM-DD): '
+    published_date = Date.parse(gets.chomp)
     print 'Enter the color of the label: '
     color = gets.chomp
 
@@ -63,6 +68,7 @@ class App
 
   def leave
     @should_exit = true
+    save_books_labels(@books, @labels)
     exit
   end
 

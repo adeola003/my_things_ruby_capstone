@@ -1,9 +1,12 @@
 require_relative 'item'
+require_relative 'storage'
 
 class Book < Item
   attr_accessor :publisher, :cover_state
 
-  def initialize(publisher, cover_state, _pusblished_date)
+  include Storage
+
+  def initialize(publisher, cover_state, published_date)
     super(published_date)
     @publisher = publisher
     @cover_state = cover_state
