@@ -3,6 +3,7 @@ require 'date'
 require_relative 'book'
 require_relative 'label'
 require_relative 'storage'
+require_relative 'music_album'
 
 class App
   attr_accessor :books, :labels
@@ -12,6 +13,7 @@ class App
   def initialize
     @books = []
     @labels = []
+    @music_albums = []
     @should_exit = false
   end
 
@@ -58,12 +60,51 @@ class App
     puts 'Book added successfully.'
   end
 
+  def list_music_albums
+    if @music_albums.empty?
+      puts 'No music albums available.'
+    else
+      puts 'List of music albums:'
+      @music_albums.each do |album|
+        puts "Published Date: #{album.published_date} On Spotify: #{album.on_spotify}"
+      end
+    end
+  end
+
+  def list_genres
+    if @genres.empty?
+      puts 'No genres available.'
+    else
+      puts 'List of genres:'
+      @genres.each do |genre|
+        puts "Name: #{genre.name}"
+      end
+    end
+  end
+
+  def add_music_album
+    print 'Enter the published date of the music album (YYYY-MM-DD): '
+    published_date = Date.parse(gets.chomp)
+    print 'Is the music album available on Spotify? (true/false): '
+    on_spotify = gets.chomp.downcase == 'true'
+
+    album = MusicAlbum.new(published_date)
+    album.on_spotify = on_spotify
+
+    @music_albums << album
+
+    puts 'Music album added successfully.'
+  end
+
   def display_options
     puts 'Options:'
     puts '1. List all books'
     puts '2. List all labels'
     puts '3. Add a book'
-    puts '4. Exit'
+    puts '4. List all music albums'
+    puts '5. List all genres'
+    puts '6. Add a music album'
+    puts '7. Exit'
   end
 
   def leave
@@ -74,16 +115,14 @@ class App
 
   def execute(choice)
     case choice
-    when 1
-      list_books
-    when 2
-      list_labels
-    when 3
-      add_book
-    when 4
-      leave
-    else
-      puts 'Invalid choice'
+    when 1 then list_books
+    when 2 then list_labels
+    when 3 then add_book
+    when 4 then list_music_albums
+    when 5 then list_genres
+    when 6 then add_music_album
+    when 7 then leave
+    else puts 'Invalid choice'
     end
   end
 
