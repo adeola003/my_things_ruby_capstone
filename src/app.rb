@@ -80,7 +80,19 @@ class App
     end
   end
 
-  
+  def add_music_album
+    print 'Enter the published date of the music album (YYYY-MM-DD): '
+    published_date = Date.parse(gets.chomp)
+    print 'Is the music album available on Spotify? (true/false): '
+    on_spotify = gets.chomp.downcase == 'true'
+
+    album = MusicAlbum.new(published_date)
+    album.on_spotify = on_spotify
+
+    @music_albums << album
+
+    puts 'Music album added successfully.'
+  end
 
   def display_options
     puts 'Options:'
