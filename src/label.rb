@@ -1,10 +1,7 @@
 require_relative 'item'
-require_relative 'storage'
 
 class Label < Item
   attr_accessor :title, :color, :items
-
-  include Storage
 
   def initialize(title, color, published_date)
     super(published_date)

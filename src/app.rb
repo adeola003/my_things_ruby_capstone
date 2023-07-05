@@ -88,6 +88,7 @@ class App
   end
 
   def run
+    load_books_labels(self)
     until @should_exit
       display_options
       print 'Enter your choice: '
