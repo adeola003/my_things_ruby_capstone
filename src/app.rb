@@ -5,7 +5,6 @@ require_relative 'label'
 require_relative 'storage'
 require_relative 'music_album'
 
-
 class App
   attr_accessor :books, :labels
 
@@ -116,22 +115,14 @@ class App
 
   def execute(choice)
     case choice
-    when 1
-      list_books
-    when 2
-      list_labels
-    when 3
-      add_book
-    when 4
-      list_music_albums
-    when 5
-      list_genres
-    when 6
-      add_music_album
-    when 7
-      leave
-    else
-      puts 'Invalid choice'
+    when 1 then list_books
+    when 2 then list_labels
+    when 3 then add_book
+    when 4 then list_music_albums
+    when 5 then list_genres
+    when 6 then add_music_album
+    when 7 then leave
+    else puts 'Invalid choice'
     end
   end
 
