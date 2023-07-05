@@ -69,6 +69,17 @@ class App
     end
   end
 
+  def list_genres
+    if @genres.empty?
+      puts 'No genres available.'
+    else
+      puts 'List of genres:'
+      @genres.each do |genre|
+        puts "Name: #{genre.name}"
+      end
+    end
+  end
+
   
 
   def display_options
