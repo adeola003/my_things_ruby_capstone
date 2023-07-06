@@ -95,5 +95,4 @@ module Storage
       app.genres << genre
     end
   end
-
 end

@@ -9,7 +9,6 @@ require_relative 'genre'
 class App
   attr_accessor :books, :labels, :music_albums, :genres
 
-
   include Storage
 
   def initialize
@@ -105,7 +104,6 @@ class App
 
     puts 'Music album added successfully.'
   end
-
 
   def display_options
     puts 'Options:'
