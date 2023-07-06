@@ -3,6 +3,8 @@ require_relative 'book'
 require_relative 'label'
 require_relative 'music_album'
 require_relative 'genre'
+require_relative 'game'
+require_relative 'author'
 
 module Storage
   def save_books_labels(books, labels)
@@ -121,43 +123,22 @@ module Storage
   end
 
   def load_authors_games(app)
-    begin
-      loaded_authors_games = JSON.parse(File.read('data/authors_games.json'))
+    loaded_authors = JSON.parse(File.read('data/authors.json'))
+    loaded_games = JSON.parse(File.read('data/games.json'))
 
-      loaded_authors_games.each do |author_game_data|
-        first_name = author_game_data['first_name']
-        last_name = author_game_data['last_name']
-        items_data = author_game_data['items']
+    loaded_authors.each do |author_data|
+      first_name = author_data['first_name']
+      last_name = author_data['last_name']
+      loaded_author = Author.new(first_name, last_name)
+      app.authors << loaded_author
+    end
+    loaded_games.each do |game_data|
+      published_date = game_data['published_date']
+      multiplayer = game_data['multiplayer']
+      last_played_at = game_data['last_played_at']
 
-        author = Author.new(first_name, last_name)
-
-        items_data.each do |item_data|
-          item_type = item_data['type']
-          published_date = Date.parse(item_data['published_date'])
-
-          case item_type
-          when 'book'
-            publisher = item_data['publisher']
-            cover_state = item_data['cover_state']
-            book = Book.new(publisher, cover_state, published_date)
-            author.add_items(book)
-          when 'game'
-            multiplayer = item_data['multiplayer']
-            last_played_at = Date.parse(item_data['last_played_at'])
-            game = Game.new(published_date, multiplayer, last_played_at)
-            author.add_items(game)
-          end
-        end
-
-        app.authors << author
-      end
-    rescue Errno::ENOENT
-      puts 'Authors and games data file not found.'
-    rescue JSON::ParserError
-      puts 'Authors and games data file contains invalid JSON data.'
+      loaded_game = Game.new(published_date, multiplayer, last_played_at)
+      app.games << loaded_game
     end
   end
-
-
-
 end

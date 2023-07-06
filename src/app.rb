@@ -109,7 +109,6 @@ class App
     puts 'Music album added successfully.'
   end
 
-
   def list_games
     if @games.empty?
       puts 'No games available.'
@@ -127,40 +126,45 @@ class App
     else
       puts 'List of authors:'
       @authors.each do |author|
-        puts "Name: #{author.first_name} #{author.last_name}"
+        puts "Firstname: #{author.first_name}, Lastname: #{author.last_name}"
       end
     end
   end
-
 
   def add_game
     print 'Enter the published date of the game (YYYY-MM-DD): '
     published_date = Date.parse(gets.chomp)
     print 'Enter the last played date of the game (YYYY-MM-DD): '
     last_played_at = Date.parse(gets.chomp)
+    print 'Is it multiplayer available? (true/false): '
+    multi = gets.chomp
+    puts 'Author\'s First name: '
+    first_name = gets.chomp
 
-    game = Game.new(published_date, multiplayer, last_played_at)
+    puts 'Author\'s Last name: '
+    last_name = gets.chomp
+
+    author = Author.new(first_name, last_name)
+    game = Game.new(published_date, multi, last_played_at)
     game.last_played_at = last_played_at
 
     @games << game
+    @authors << author
 
     puts 'Game added successfully.'
   end
 
-#   def add_author
-#   puts 'Author\'s First name: '
-#   first_name = gets.chomp
+  #   def add_author
+  #   # puts 'Author\'s First name: '
+  #   # first_name = gets.chomp
 
-#   puts 'Author\'s Last name: '
-#   last_name = gets.chomp
+  #   # puts 'Author\'s Last name: '
+  #   # last_name = gets.chomp
 
-#   author = Author.new
-#   author.first_name = first_name
-#   author.last_name = last_name
-#   author
-# end
-
-
+  #   # author.first_name = first_name
+  #   # author.last_name = last_name
+  #   # author
+  # end
 
   def display_options
     puts 'Options:'
@@ -192,8 +196,7 @@ class App
     when 4 then list_music_albums
     when 5 then list_genres
     when 6 then add_music_album
-    # when 7 then list_games
-    when 7 then add_author
+    when 7 then list_games
     when 8 then list_authors
     when 9 then add_game
     when 10 then leave
