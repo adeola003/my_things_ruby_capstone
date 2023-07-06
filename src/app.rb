@@ -7,7 +7,8 @@ require_relative 'music_album'
 require_relative 'genre'
 
 class App
-  attr_accessor :books, :labels
+  attr_accessor :books, :labels, :music_albums, :genres
+
 
   include Storage
 
@@ -120,6 +121,7 @@ class App
   def leave
     @should_exit = true
     save_books_labels(@books, @labels)
+    save_music_albums_genres(@music_albums, @genres)
     exit
   end
 
@@ -137,7 +139,7 @@ class App
   end
 
   def run
-    load_books_labels(self)
+    load_books_labels(self) && load_music_albums_genres(self)
     until @should_exit
       display_options
       print 'Enter your choice: '
