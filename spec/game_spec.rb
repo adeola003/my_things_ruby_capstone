@@ -7,7 +7,7 @@ RSpec.describe Game do
   describe '#can_be_archived?' do
     context 'when last_played_at is older than 2 years' do
       before do
-        game.last_played_at = Date.today - (2 * 365 + 1)
+        game.last_played_at = Date.today - ((2 * 365) + 1)
       end
 
       it 'returns true' do
@@ -17,7 +17,7 @@ RSpec.describe Game do
 
     context 'when last_played_at is within 2 years' do
       before do
-        game.last_played_at = Date.today - (2 * 365 - 1)
+        game.last_played_at = Date.today - ((2 * 365) - 1)
       end
 
       it 'returns false' do
