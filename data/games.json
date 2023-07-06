@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "published_date": "2023-01-01",
+    "archived": false,
+    "last_played_at": "2022-12-31T23:59:59",
+    "genre_id": 1,
+    "author_id": 1,
+    "label_id": null
+  }
+]
