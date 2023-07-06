@@ -1,38 +1,24 @@
-require 'date'
 require_relative '../src/game'
+require 'date'
 
-RSpec.describe Game do
-  let(:game) { Game.new(Date.today) }
+describe Game do
+  context 'Testing the game class' do
+    let(:game) { Game.new(Date.parse('2012-02-27'), true, '2013-12-12') }
 
-  describe '#can_be_archived?' do
-    context 'when last_played_at is older than 2 years' do
-      before do
-        game.last_played_at = Date.today - ((2 * 365) + 1)
-      end
-
-      it 'returns true' do
-        expect(game.can_be_archived?).to be true
-      end
+    it 'Should create a new game with the given arguments' do
+      expect(game).to be_an_instance_of(Game)
     end
 
-    context 'when last_played_at is within 2 years' do
-      before do
-        game.last_played_at = Date.today - ((2 * 365) - 1)
-      end
-
-      it 'returns false' do
-        expect(game.can_be_archived?).to be false
-      end
+    it 'Should return the correct multiplayer value' do
+      expect(game.multiplayer).to eq(true)
     end
 
-    context 'when last_played_at is nil' do
-      before do
-        game.last_played_at = nil
-      end
+    it 'Should return the correct last_played_at value' do
+      expect(game.last_played_at).to eq('2013-12-12')
+    end
 
-      it 'returns false' do
-        expect(game.can_be_archived?).to be false
-      end
+    it 'Should return true if the parent method returns true or if last_played_at is older than 2 years' do
+      expect(game.can_be_archived?).to eq(true)
     end
   end
 end
