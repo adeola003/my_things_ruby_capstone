@@ -154,18 +154,6 @@ class App
     puts 'Game added successfully.'
   end
 
-  #   def add_author
-  #   # puts 'Author\'s First name: '
-  #   # first_name = gets.chomp
-
-  #   # puts 'Author\'s Last name: '
-  #   # last_name = gets.chomp
-
-  #   # author.first_name = first_name
-  #   # author.last_name = last_name
-  #   # author
-  # end
-
   def display_options
     puts 'Options:'
     puts '1. List all books'
