@@ -1,5 +1,4 @@
-require_relative 'item'
-class Author < Item
+class Author
   attr_accessor :first_name, :last_name, :items, :id
 
   def initialize(first_name, last_name)
