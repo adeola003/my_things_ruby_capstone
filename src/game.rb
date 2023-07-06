@@ -1,16 +1,14 @@
 require_relative 'item'
-require 'date'
 
 class Game < Item
-  attr_accessor :multiplayer, :last_played_at
+  attr_accessor :last_played_at
 
-  def initialize(published_date, multiplayer, last_played_at)
+  def initialize(published_date)
     super(published_date)
-    @multiplayer = multiplayer
-    @last_played_at = last_played_at
+    @last_played_at = nil
   end
 
   def can_be_archived?
-    super && (Date.today.year - Date.parse(@last_played_at).year > 2)
+    super && last_played_at && last_played_at < (Time.now - (2 * 365 * 24 * 60 * 60))
   end
 end

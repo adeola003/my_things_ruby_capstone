@@ -1,26 +1,20 @@
 [
   {
-    "id": 30,
+    "id": 984,
     "publisher": "kolo",
     "cover_state": "bad",
     "published_date": "2023-12-13"
   },
   {
-    "id": 158,
+    "id": 394,
     "publisher": "Adeola",
     "cover_state": "Very good",
     "published_date": "2023-07-05"
   },
   {
-    "id": 779,
+    "id": 387,
     "publisher": "mussie",
     "cover_state": "mussie",
     "published_date": "2022-03-21"
-  },
-  {
-    "id": 19,
-    "publisher": "moan",
-    "cover_state": "bad",
-    "published_date": "2023-12-12"
   }
 ]

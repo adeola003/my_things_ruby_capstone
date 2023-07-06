@@ -3,8 +3,6 @@ require_relative 'book'
 require_relative 'label'
 require_relative 'music_album'
 require_relative 'genre'
-require_relative 'game'
-require_relative 'author'
 
 module Storage
   def save_books_labels(books, labels)
@@ -95,50 +93,6 @@ module Storage
 
       genre = Genre.new(name)
       app.genres << genre
-    end
-  end
-
-  def save_authors_games(authors, games)
-    saved_authors = []
-    saved_games = []
-
-    authors.each do |author|
-      saved_authors << {
-        'id' => author.id,
-        'first_name' => author.first_name,
-        'last_name' => author.last_name
-      }
-    end
-
-    games.each do |game|
-      saved_games << {
-        'published_date' => game.published_date.to_s,
-        'multiplayer' => game.multiplayer,
-        'last_played_at' => game.last_played_at.to_s
-      }
-    end
-
-    File.write('data/authors.json', JSON.pretty_generate(saved_authors))
-    File.write('data/games.json', JSON.pretty_generate(saved_games))
-  end
-
-  def load_authors_games(app)
-    loaded_authors = JSON.parse(File.read('data/authors.json'))
-    loaded_games = JSON.parse(File.read('data/games.json'))
-
-    loaded_authors.each do |author_data|
-      first_name = author_data['first_name']
-      last_name = author_data['last_name']
-      loaded_author = Author.new(first_name, last_name)
-      app.authors << loaded_author
-    end
-    loaded_games.each do |game_data|
-      published_date = game_data['published_date']
-      multiplayer = game_data['multiplayer']
-      last_played_at = game_data['last_played_at']
-
-      loaded_game = Game.new(published_date, multiplayer, last_played_at)
-      app.games << loaded_game
     end
   end
 end

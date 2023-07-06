@@ -45,6 +45,39 @@ class App
     end
   end
 
+  def list_music_albums
+    if @music_albums.empty?
+      puts 'No music albums available.'
+    else
+      puts 'List of music albums:'
+      @music_albums.each do |album|
+        puts "Published Date: #{album.published_date} On Spotify: #{album.on_spotify}"
+      end
+    end
+  end
+
+  def list_games
+    if @games.empty?
+      puts 'No games available.'
+    else
+      puts 'List of games:'
+      @games.each do |game|
+        puts "Published Date: #{game.published_date} Last Played At: #{game.last_played_at}"
+      end
+    end
+  end
+
+  def list_authors
+    if @authors.empty?
+      puts 'No authors available.'
+    else
+      puts 'List of authors:'
+      @authors.each do |author|
+        puts "Name: #{author.name}"
+      end
+    end
+  end
+
   def add_book
     print 'Enter the title for the label: '
     title = gets.chomp
@@ -64,28 +97,6 @@ class App
     @labels << label
 
     puts 'Book added successfully.'
-  end
-
-  def list_music_albums
-    if @music_albums.empty?
-      puts 'No music albums available.'
-    else
-      puts 'List of music albums:'
-      @music_albums.each do |album|
-        puts "Published Date: #{album.published_date} On Spotify: #{album.on_spotify}"
-      end
-    end
-  end
-
-  def list_genres
-    if @genres.empty?
-      puts 'No genres available.'
-    else
-      puts 'List of genres:'
-      @genres.each do |genre|
-        puts "Name: #{genre.name}"
-      end
-    end
   end
 
   def add_music_album
@@ -109,62 +120,29 @@ class App
     puts 'Music album added successfully.'
   end
 
-  def list_games
-    if @games.empty?
-      puts 'No games available.'
-    else
-      puts 'List of games:'
-      @games.each do |game|
-        puts "Published Date: #{game.published_date} Last Played At: #{game.last_played_at}"
-      end
-    end
-  end
-
-  def list_authors
-    if @authors.empty?
-      puts 'No authors available.'
-    else
-      puts 'List of authors:'
-      @authors.each do |author|
-        puts "Firstname: #{author.first_name}, Lastname: #{author.last_name}"
-      end
-    end
-  end
-
   def add_game
     print 'Enter the published date of the game (YYYY-MM-DD): '
     published_date = Date.parse(gets.chomp)
     print 'Enter the last played date of the game (YYYY-MM-DD): '
     last_played_at = Date.parse(gets.chomp)
-    print 'Is it multiplayer available? (true/false): '
-    multi = gets.chomp
-    puts 'Author\'s First name: '
-    first_name = gets.chomp
 
-    puts 'Author\'s Last name: '
-    last_name = gets.chomp
-
-    author = Author.new(first_name, last_name)
-    game = Game.new(published_date, multi, last_played_at)
+    game = Game.new(published_date)
     game.last_played_at = last_played_at
 
     @games << game
-    @authors << author
 
     puts 'Game added successfully.'
   end
 
-  #   def add_author
-  #   # puts 'Author\'s First name: '
-  #   # first_name = gets.chomp
+  def add_author
+    print 'Enter the name of the author: '
+    name = gets.chomp
 
-  #   # puts 'Author\'s Last name: '
-  #   # last_name = gets.chomp
+    author = Author.new(name)
+    @authors << author
 
-  #   # author.first_name = first_name
-  #   # author.last_name = last_name
-  #   # author
-  # end
+    puts 'Author added successfully.'
+  end
 
   def display_options
     puts 'Options:'
@@ -172,19 +150,21 @@ class App
     puts '2. List all labels'
     puts '3. Add a book'
     puts '4. List all music albums'
-    puts '5. List all genres'
-    puts '6. Add a music album'
-    puts '7. List all games'
-    puts '8. List all authors'
-    puts '9. Add a game'
+    puts '5. List all games'
+    puts '6. List all authors'
+    puts '7. Add a music album'
+    puts '8. Add a game'
+    puts '9. Add an author'
     puts '10. Exit'
   end
 
   def leave
+    @should_exit = true
     save_books_labels(@books, @labels)
     save_music_albums_genres(@music_albums, @genres)
-    save_authors_games(@authors, @games)
-    @should_exit = true
+    save_music_albums(@music_albums)
+    save_games(@games)
+    save_authors(@authors)
     exit
   end
 
@@ -194,11 +174,11 @@ class App
     when 2 then list_labels
     when 3 then add_book
     when 4 then list_music_albums
-    when 5 then list_genres
-    when 6 then add_music_album
-    when 7 then list_games
-    when 8 then list_authors
-    when 9 then add_game
+    when 5 then list_games
+    when 6 then list_authors
+    when 7 then add_music_album
+    when 8 then add_game
+    when 9 then add_author
     when 10 then leave
     else puts 'Invalid choice'
     end
@@ -207,7 +187,9 @@ class App
   def run
     load_books_labels(self)
     load_music_albums_genres(self)
-    load_authors_games(self)
+    load_music_albums(self)
+    load_games(self)
+    load_authors(self)
     until @should_exit
       display_options
       print 'Enter your choice: '

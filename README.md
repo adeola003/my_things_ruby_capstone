@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h3><b>**Catalog of my things**</b></h3>
+  <h3><b>**OOP-School-library**</b></h3>
 
 </div>
 
@@ -11,7 +11,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[Catalog of my things\] ](#--)
+- [📖 \[OOP-School-library\] ](#-oop-school-library-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -27,9 +27,13 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Catalog of my things] <a name="about-project"></a>
+# 📖 [OOP-School-library] <a name="about-project"></a>
 
-**[Catalog of my things]** is a console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games.
+**[OOP-School-library]** is a tool to record what books are in the library and who borrows them. This app will allow you to:
+
+Add new students or teachers.
+Add new books.
+Save records of who borrowed a given book and when.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -38,10 +42,6 @@
 
 <details>
   <summary>Ruby</summary>
-  <summary>IRB</summary>
-  <summary>SQL</summary>
-  <summary>Rspec</summary>
-  <summary>Vscode</summary>
 </details>
 
 
@@ -50,16 +50,14 @@
 ### Key Features <a name="key-features"></a>
 
 
-- **[Add new things]**
-- **[Schema file is created for the project]**
-- **[Data is preserve in json files]**
-- **[A console app is built for the project]**
+- **[Add new students or teachers]**
+- **[Add new books.]**
+- **[Save records of who borrowed a given book and when]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
-[CLICK HERE](#) for a video presentation of the project
 
 
 <!-- GETTING STARTED -->
@@ -79,17 +77,19 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  git clone https://github.com/adeola003/my_things_ruby_capstone.git
-  cd my_things_ruby_capstone
+  git clone https://github.com/adeola003/OOP-School-libray.git
+  cd OOP-School-libray
 ```
 
 ### Install
--Command: bundle install
+-Command: install bundle
 
 
-### Usage
-- Step 1: Use the ``ruby main.rb`` command to run the app
-- Step 2: Run the tests with `rspec spec`
+<!-- ### Usage
+-step 1: create Database vet clinic
+-step 2: create table animals
+insert files... -->
+
 
 <!-- AUTHORS -->
 
@@ -106,11 +106,6 @@ Clone this repository to your desired folder:
 - Twitter: [@0sugo5](https://twitter.com/osugo5)
 - LinkedIn: [Joseck Osugo](https://www.linkedin.com/in/joseck-osugo/)
 
-👤 **Mussie Kahsay**
-- GitHub: [@MussieTeka](https://github.com/MussieTeka)
-- Twitter: [@mussieteka](https://twitter.com/mussieteka)
-- LinkedIn: [@mussieteka](https://linkedin.com/in/mussieteka)
-
 
 <!-- FUTURE FEATURES -->
 
@@ -124,7 +119,6 @@ Clone this repository to your desired folder:
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
-Feel free to check the [issue page](https://github.com/adeola003/my_things_ruby_capstone/issues)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -142,7 +136,7 @@ If you like this repo dont forget to give it a star.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We would like to thank the Microverse community and the partners.
+I would like to thank the Microverse community.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
